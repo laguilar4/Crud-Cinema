@@ -7,17 +7,21 @@
                 <form action="{{route('store')}}" method="POST">
                         @csrf
                         <div class="form-group">
+                            <label>Titulo</label>
                             <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ingrese el titulo">
                         </div>
                         <div class="form-group">
+                            <label>Sinopsis</label>
                             <input type="text" class="form-control" id="sinopsis" name="sinopsis" placeholder="Ingrese la sinopsis">
                         </div>
                         <div class="form-group">
+                            <label>Fecha de Lanzamiento</label>
                             <input type="date" class="form-control" id="fechadelanzamiento" name="fechadelanzamiento">
                         </div>
                         <div class="form-group">
+                            <label>Genero</label>
                             <select name="genero_id" class="form-control">
-                                <option value="">Seleccion</option>
+                                <option value="">Seleccione</option>
                                 @foreach ($generos as $value)
                                     <option value="{{$value->id}}">{{$value->nombre}}</option>
                                 @endforeach

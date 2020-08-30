@@ -16,12 +16,26 @@ class PeliculaController extends Controller
     public function index()
     {
         //
+        return view('index');
+    }
+
+    public function agregarpeli()
+    {
+        //
         $peliculas =  App\Pelicula::all();
         $generos =App\Genero::all();
 
         return view('agregarpelicula',['peliculas' => $peliculas,'generos'=>$generos]);
     }
+    public function listaspeli()
+    {
+        //
+        $peliculas =  App\Pelicula::all();
+        $generos =App\Genero::all();
 
+        return view('listaspeli',['peliculas' => $peliculas,'generos'=>$generos]);
+    }
+    
     /**
      * Show the form for creating a new resource.
      *

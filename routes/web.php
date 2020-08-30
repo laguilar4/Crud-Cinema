@@ -14,6 +14,7 @@
 Route::get('/', function () {
        return view('index');
      });
-
-Route::get('/agregarpeliculas', 'PeliculaController@index')->name('agregarpeliculas');
+Route::get('/inicio', 'PeliculaController@index')->name('inicio');
+Route::get('/agregarpeliculas', 'PeliculaController@agregarpeli')->name('agregarpeliculas');
+Route::get('/listaspeli', 'PeliculaController@listaspeli')->name('listaspeli');
 Route::post('/store', 'PeliculaController@store')->name('store');
