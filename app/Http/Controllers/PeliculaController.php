@@ -82,9 +82,12 @@ class PeliculaController extends Controller
      * @param  \App\Pelicula  $pelicula
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pelicula $pelicula)
+    public function edit($id)
     {
         //
+        $peliculaActualizar = App\Pelicula::findOrFail($id);
+        $generos2 = App\Genero::all();
+        return view('editar',compact('peliculaActualizar','generos2'));
     }
 
     /**
@@ -94,9 +97,16 @@ class PeliculaController extends Controller
      * @param  \App\Pelicula  $pelicula
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pelicula $pelicula)
+    public function update(Request $request, $id)
     {
         //
+        $peliculaUpdate = \App\Pelicula::findOrFail($id);
+        $peliculaUpdate->titulo = $request->input('titulo');
+        $peliculaUpdate->sinopsis = $request->input('sinopsis');
+        $peliculaUpdate->fechadelanzamiento = $request->input('fechadelanzamiento');
+        $peliculaUpdate->genero_id = $request->input('genero_id');
+        $peliculaUpdate->save();
+        return redirect()->back()->with('editado', 'Se ha editador correctamente, muy bien!'); 
     }
 
     /**
@@ -105,8 +115,11 @@ class PeliculaController extends Controller
      * @param  \App\Pelicula  $pelicula
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pelicula $pelicula)
+    public function destroy($id)
     {
         //
+        $peliculaUpdate = \App\Pelicula::findOrFail($id);
+        $peliculaUpdate->delete();
+        return redirect()->back()->with('eliminado', 'Se ha eliminado correctamente, muy bien!');  
     }
 }

@@ -18,3 +18,6 @@ Route::get('/inicio', 'PeliculaController@index')->name('inicio');
 Route::get('/agregarpeliculas', 'PeliculaController@agregarpeli')->name('agregarpeliculas');
 Route::get('/listaspeli', 'PeliculaController@listaspeli')->name('listaspeli');
 Route::post('/store', 'PeliculaController@store')->name('store');
+Route::get('/editar/{id}', 'PeliculaController@edit')->name('editar');
+Route::put('/update/{id}', 'PeliculaController@update')->name('update');
+Route::delete('/destroy/{id}', 'PeliculaController@destroy')->name('eliminar');

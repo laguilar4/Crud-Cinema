@@ -21,6 +21,15 @@
                         <td>{{$item->sinopsis}}</td>  
                         <td>{{$item->fechadelanzamiento}}</td> 
                         <td>{{$item->genero_id}}</td> 
+                        <td>
+                            <a href="{{route('editar',$item->id)}}" class="btn btn-warning">Editar</a>
+                            <form action="{{route('eliminar',$item->id)}}"  method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        
+                        </td>
                         @endforeach
                         </tr>                      
                   
@@ -30,4 +39,10 @@
                 </tr>
                 </tbody>
             </table>
+            @if (Session::has('eliminado'))
+            <div class="alert alert-success">
+            {{Session::get('eliminado')}}
+                
+            </div>
+            @endif
 @endsection
