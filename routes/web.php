@@ -21,3 +21,5 @@ Route::post('/store', 'PeliculaController@store')->name('store');
 Route::get('/editar/{id}', 'PeliculaController@edit')->name('editar');
 Route::put('/update/{id}', 'PeliculaController@update')->name('update');
 Route::delete('/destroy/{id}', 'PeliculaController@destroy')->name('eliminar');
+Route::get('/genero', 'GeneroController@index')->name('genero');
+Route::post('/store2', 'GeneroController@store')->name('store2');

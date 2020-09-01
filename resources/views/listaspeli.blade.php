@@ -10,7 +10,7 @@
                     <th scope="col">Titulo</th>
                     <th scope="col">Sinopsis</th>
                     <th scope="col">Fecha de Lanzamiento</th>
-                    <th scope="col">Genero</th>
+                    <th scope="col">Genero_ID</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -20,7 +20,7 @@
                         <td>{{$item->titulo}}</td>
                         <td>{{$item->sinopsis}}</td>  
                         <td>{{$item->fechadelanzamiento}}</td> 
-                        <td>{{$item->genero_id}}</td> 
+                        <td>{{$item->genero_id}}</td>
                         <td>
                             <a href="{{route('editar',$item->id)}}" class="btn btn-warning">Editar</a>
                             <form action="{{route('eliminar',$item->id)}}"  method="POST">

@@ -3,7 +3,6 @@
 @section('content')
         <div>
                 <h3 class="text-center mb-4">Agregar Peliculas</h3>
-
                 <form action="{{route('store')}}" method="POST">
                         @csrf
                         <div class="form-group">
@@ -26,6 +25,7 @@
                                     <option value="{{$value->id}}">{{$value->nombre}}</option>
                                 @endforeach
                             </select>
+                            <li class="active"><a href="{{route('genero')}}">Agregar Genero</a></li>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Guardar</button>

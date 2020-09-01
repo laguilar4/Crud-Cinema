@@ -15,7 +15,7 @@ class GeneroController extends Controller
      */
     public function index()
     {
-        
+        return view('genero');
     }
 
     /**
@@ -37,6 +37,10 @@ class GeneroController extends Controller
     public function store(Request $request)
     {
         //
+        $generoAgregar = new Genero;
+        $generoAgregar->nombre = $request->input('nombre');
+        $generoAgregar->save();
+        return redirect()->back()->with('exitoso', 'Se ha guardado correctamente, felicitaciones!');   
     }
 
     /**
